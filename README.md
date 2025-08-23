@@ -1,7 +1,8 @@
 # Practice - UIKit
 
 ## 🚀 Возможности
-- Addead UICollectionViewDiffableDataSource
+- UICollectionViewDiffableDataSource
+- UIBuilder
 
 
 ## 🛠 Технологии
