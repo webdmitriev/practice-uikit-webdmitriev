@@ -1,7 +1,7 @@
 # Practice - UIKit
 
 ## 🚀 Возможности
-- 
+- Addead UICollectionViewDiffableDataSource
 
 
 ## 🛠 Технологии
