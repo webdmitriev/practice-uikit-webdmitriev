@@ -20,4 +20,9 @@ class Builder {
         return view
     }
     
+    static func createCollectionDiffableView() -> UIViewController {
+        let view = CollectionDiffableView()
+        return view
+    }
+    
 }

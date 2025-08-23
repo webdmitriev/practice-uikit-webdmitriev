@@ -22,8 +22,10 @@ final class TabBarController: UITabBarController {
     private func setupTabs() {
         let homeVC = self.createNavBar("Home", image: UIImage(systemName: "house"), vc: Builder.createHomeViewController())
         let odVC = self.createNavBar("OD", image: UIImage(systemName: "tablecells"), vc: Builder.createODTableView())
+        let diffableVC = self.createNavBar("Diffable", image: UIImage(systemName: "table.fill"),
+                                           vc: Builder.createCollectionDiffableView())
         
-        self.setViewControllers([homeVC, odVC], animated: true)
+        self.setViewControllers([homeVC, odVC, diffableVC], animated: true)
     }
     
     private func createNavBar(_ title: String, image: UIImage?, vc: UIViewController) -> UINavigationController {
