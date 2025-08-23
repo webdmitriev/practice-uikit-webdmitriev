@@ -3,6 +3,8 @@
 ## 🚀 Возможности
 - UICollectionViewDiffableDataSource
 - UIBuilder
+- TabBar
+- Builder (createdViewsControllers)
 
 
 ## 🛠 Технологии
