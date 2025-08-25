@@ -6,7 +6,7 @@
 - TabBar
 - Builder (createdViewsControllers)
 - Clean Architecture
-- URLSession
+- URLSession (async throws)
 
 
 ## 🛠 Технологии
