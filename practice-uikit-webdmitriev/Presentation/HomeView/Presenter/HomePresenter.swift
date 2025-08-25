@@ -9,18 +9,44 @@ import Foundation
 
 protocol HomeViewPresenterProtocol: AnyObject {
     var view: HomeViewControllerProtocol? { get set }
-    func fetchPosts()
+
+    func viewDidLoad()
+    func refreshData()
+    var news: [News] { get }
+    
 }
 
 final class HomePresenter: HomeViewPresenterProtocol {
     
     weak var view: HomeViewControllerProtocol?
+    private let dataSource: FetchPostNewsDataSource
+    private(set) var news: [News] = []
     
-    init(view: HomeViewControllerProtocol? = nil) {
+    init(view: HomeViewControllerProtocol, dataSource: FetchPostNewsDataSource = FetchPostNewsDataSourceImpl()) {
         self.view = view
+        self.dataSource = dataSource
     }
     
-    func fetchPosts() {
-        print("HomePresenter fetchPosts")
+    func viewDidLoad() {
+        loadNews()
+    }
+    
+    func refreshData() {
+        loadNews()
+    }
+    
+    private func loadNews() {
+        Task { @MainActor in
+            do {
+                view?.showLoading(true)
+                let fetchedNews = try await dataSource.fetchPostNews()
+                self.news = fetchedNews
+                view?.displayNews(fetchedNews)
+                view?.showLoading(false)
+            } catch {
+                view?.showLoading(false)
+                view?.showError(error.localizedDescription)
+            }
+        }
     }
 }
