@@ -5,6 +5,8 @@
 - UIBuilder
 - TabBar
 - Builder (createdViewsControllers)
+- Clean Architecture
+- URLSession
 
 
 ## 🛠 Технологии
